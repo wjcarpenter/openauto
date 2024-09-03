@@ -131,6 +131,7 @@ void Configuration::load()
         videoMargins_ = QRect(0, 0, iniConfig.get<int32_t>(cVideoMarginWidth, 0), iniConfig.get<int32_t>(cVideoMarginHeight, 0));
 
         enableTouchscreen_ = iniConfig.get<bool>(cInputEnableTouchscreenKey, true);
+        OPENAUTO_LOG(info) << "[wjc] Configuration.load " << enableTouchscreen_;
         enablePlayerControl_ = iniConfig.get<bool>(cInputEnablePlayerControlKey, false);
         this->readButtonCodes(iniConfig);
 
@@ -480,11 +481,13 @@ QRect Configuration::getVideoMargins() const
 
 bool Configuration::getTouchscreenEnabled() const
 {
+    OPENAUTO_LOG(info) << "[wjc] getTouchscreenEnabled " << enableTouchscreen_;
     return enableTouchscreen_;
 }
 
 void Configuration::setTouchscreenEnabled(bool value)
 {
+    OPENAUTO_LOG(info) << "[wjc] " << enableTouchscreen_ << " setTouchscreenEnabled " << value;
     enableTouchscreen_ = value;
 }
 

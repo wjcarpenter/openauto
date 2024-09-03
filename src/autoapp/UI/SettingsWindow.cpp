@@ -233,6 +233,7 @@ void SettingsWindow::onSave()
     configuration_->setVideoMargins(std::move(videoMargins));
 
     configuration_->setTouchscreenEnabled(ui_->checkBoxEnableTouchscreen->isChecked());
+    OPENAUTO_LOG(info) << "[wjc] calling setTouchscreenEnabled from SettingsWindow.onSave";
     this->saveButtonCheckBoxes();
 
     configuration_->playerButtonControl(ui_->checkBoxPlayerControl->isChecked());
